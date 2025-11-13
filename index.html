@@ -5,27 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-    <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-    <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <title>Valid By Vogue</title>
 </head>
 
 <body>
-    <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
-                <i class='bx bxs-watch nav__logo-icon'></i> Valid by Vogue
+                <img src="assets/img/favicon.png" alt="Burqa Logo" class="nav__logo-icon"> Valid by Vogue
             </a>
 
             <div class="nav__menu" id="nav-menu">
@@ -50,7 +45,6 @@
             </div>
 
             <div class="nav__btns">
-                <!-- Theme change button -->
                 <i class='bx bx-moon change-theme' id="theme-button"></i>
 
                 <div class="nav__shop" id="cart-shop">
@@ -64,7 +58,6 @@
         </nav>
     </header>
 
-    <!--==================== CART ====================-->
     <div class="cart" id="cart">
         <i class='bx bx-x cart__close' id="cart-close"></i>
 
@@ -159,13 +152,11 @@
         </div>
     </div>
 
-    <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== HOME ====================-->
         <section class="home" id="home">
             <div class="home__container container grid">
-                <div class="home__img-bg">
-                    <img src="assets/img/home.png" alt="" class="home__img">
+                <div class="home__img-bg" data-id="h1">
+                    <img src="assets/img/home.png" alt="" class="home__img" onclick="goToProduct('h1')" style="cursor: pointer;">
                 </div>
 
                 <div class="home__social">
@@ -192,61 +183,59 @@
                                 Discover
                             </a>
 
-                        <button class="button home__button">ADD TO CART</button>
+                        <button class="button home__button" onclick="addToCart('h1')">BUY NOW</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--==================== FEATURED ====================-->
         <section class="featured section container" id="featured">
             <h2 class="section__title">
                 Featured
             </h2>
 
             <div class="featured__container grid">
-                <article class="featured__card">
+                <article class="featured__card" data-id="f1">
                     <span class="featured__tag">Sale</span>
 
-                    <img src="assets/img/featured1.png" alt="" class="featured__img">
+                    <img src="assets/img/featured1.png" alt="" class="featured__img" onclick="goToProduct('f1')" style="cursor: pointer;">
 
                     <div class="featured__data">
                         <h3 class="featured__title">Dubai Nida Burqa</h3>
                         <span class="featured__price">৳2000</span>
                     </div>
 
-                    <button class="button featured__button">ADD TO CART</button>
+                    <button class="button featured__button" onclick="addToCart('f1')">BUY NOW</button>
                 </article>
 
-                <article class="featured__card">
+                <article class="featured__card" data-id="f2">
                     <span class="featured__tag">Sale</span>
 
-                    <img src="assets/img/featured2.png" alt="" class="featured__img">
+                    <img src="assets/img/featured2.png" alt="" class="featured__img" onclick="goToProduct('f2')" style="cursor: pointer;">
 
                     <div class="featured__data">
                         <h3 class="featured__title">Closed Front Burq</h3>
                         <span class="featured__price">৳3500</span>
                     </div>
 
-                    <button class="button featured__button">ADD TO CART</button>
+                    <button class="button featured__button" onclick="addToCart('f2')">BUY NOW</button>
                 </article>
 
-                <article class="featured__card">
+                <article class="featured__card" data-id="f3">
                     <span class="featured__tag">Sale</span>
 
-                    <img src="assets/img/featured3.png" alt="" class="featured__img">
+                    <img src="assets/img/featured3.png" alt="" class="featured__img" onclick="goToProduct('f3')" style="cursor: pointer;">
 
                     <div class="featured__data">
                         <h3 class="featured__title">Layered Burqa</h3>
                         <span class="featured__price">৳4000</span>
                     </div>
 
-                    <button class="button featured__button">ADD TO CART</button>
+                    <button class="button featured__button" onclick="addToCart('f3')">BUY NOW</button>
                 </article>
             </div>
         </section>
 
-        <!--==================== STORY ====================-->
         <section class="story section container">
             <div class="story__container grid">
                 <div class="story__data">
@@ -272,71 +261,69 @@
             </div>
         </section>
 
-        <!--==================== PRODUCTS ====================-->
         <section class="products section container" id="products">
             <h2 class="section__title">
                 Products
             </h2>
 
             <div class="products__container grid">
-                <article class="products__card">
-                    <img src="assets/img/product1.png" alt="" class="products__img">
+                <article class="products__card" data-id="p1">
+                    <img src="assets/img/product1.png" alt="" class="products__img" onclick="goToProduct('p1')" style="cursor: pointer;">
 
                     <h3 class="products__title">Abaya Style Burqa</h3>
                     <span class="products__price">৳3000</span>
 
-                    <button class="products__button">
+                    <button class="products__button" onclick="addToCart('p1')">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
                 </article>
 
-                <article class="products__card">
-                    <img src="assets/img/product2.png" alt="" class="products__img">
+                <article class="products__card" data-id="p2">
+                    <img src="assets/img/product2.png" alt="" class="products__img" onclick="goToProduct('p2')" style="cursor: pointer;">
 
                     <h3 class="products__title">Closed Front Burqa</h3>
                     <span class="products__price">৳2000</span>
 
-                    <button class="products__button">
+                    <button class="products__button" onclick="addToCart('p2')">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
                 </article>
 
-                <article class="products__card">
-                    <img src="assets/img/product3.png" alt="" class="products__img">
+                <article class="products__card" data-id="p3">
+                    <img src="assets/img/product3.png" alt="" class="products__img" onclick="goToProduct('p3')" style="cursor: pointer;">
 
                     <h3 class="products__title">Kaftan Style Burqa</h3>
                     <span class="products__price">৳1500</span>
 
-                    <button class="products__button">
+                    <button class="products__button" onclick="addToCart('p3')">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
                 </article>
 
-                <article class="products__card">
-                    <img src="assets/img/product4.png" alt="" class="products__img">
+                <article class="products__card" data-id="p4">
+                    <img src="assets/img/product4.png" alt="" class="products__img" onclick="goToProduct('p4')" style="cursor: pointer;">
 
                     <h3 class="products__title">Maternity Burqa</h3>
                     <span class="products__price">৳3000</span>
 
-                    <button class="products__button">
+                    <button class="products__button" onclick="addToCart('p4')">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
                 </article>
 
-                <article class="products__card">
-                    <img src="assets/img/product5.png" alt="" class="products__img">
+                <article class="products__card" data-id="p5">
+                    <img src="assets/img/product5.png" alt="" class="products__img" onclick="goToProduct('p5')" style="cursor: pointer;">
 
                     <h3 class="products__title">Butterfly Cut Burqa</h3>
                     <span class="products__price">৳2000</span>
 
-                    <button class="products__button">
+                    <button class="products__button" onclick="addToCart('p5')">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
                 </article>
             </div>
         </section>
 
-        <!--==================== TESTIMONIAL ====================-->
         <section class="testimonial section container">
             <div class="testimonial__container grid">
                 <div class="swiper testimonial-swiper">
@@ -395,7 +382,6 @@
             </div>
         </section>
 
-        <!--==================== NEW ====================-->
         <section class="new section container" id="new">
             <h2 class="section__title">
                 New Arrivals
@@ -404,63 +390,62 @@
             <div class="new__container">
                 <div class="swiper new-swiper">
                     <div class="swiper-wrapper">
-                        <article class="new__card swiper-slide">
+                        <article class="new__card swiper-slide" data-id="n1">
                             <span class="new__tag">New</span>
 
-                            <img src="assets/img/new1.png" alt="" class="new__img">
+                            <img src="assets/img/new1.png" alt="" class="new__img" onclick="goToProduct('n1')" style="cursor: pointer;">
 
                             <div class="new__data">
                                 <h3 class="new__title">Festive Burqa</h3>
                                 <span class="new__price">৳2500</span>
                             </div>
 
-                            <button class="button new__button">ADD TO CART</button>
+                            <button class="button new__button" onclick="addToCart('n1')">BUY NOW</button>
                         </article>
 
-                        <article class="new__card swiper-slide">
+                        <article class="new__card swiper-slide" data-id="n2">
                             <span class="new__tag">New</span>
 
-                            <img src="assets/img/new2.png" alt="" class="new__img">
+                            <img src="assets/img/new2.png" alt="" class="new__img" onclick="goToProduct('n2')" style="cursor: pointer;">
 
                             <div class="new__data">
                                 <h3 class="new__title">Dubai Nida Burqa</h3>
                                 <span class="new__price">৳2500</span>
                             </div>
 
-                            <button class="button new__button">ADD TO CART</button>
+                            <button class="button new__button" onclick="addToCart('n2')">BUY NOW</button>
                         </article>
 
-                        <article class="new__card swiper-slide">
+                        <article class="new__card swiper-slide" data-id="n3">
                             <span class="new__tag">New</span>
 
-                            <img src="assets/img/new3.png" alt="" class="new__img">
+                            <img src="assets/img/new3.png" alt="" class="new__img" onclick="goToProduct('n3')" style="cursor: pointer;">
 
                             <div class="new__data">
                                 <h3 class="new__title">Closed Front Burqa</h3>
                                 <span class="new__price">৳3000</span>
                             </div>
 
-                            <button class="button new__button">ADD TO CART</button>
+                            <button class="button new__button" onclick="addToCart('n3')">BUY NOW</button>
                         </article>
 
-                        <article class="new__card swiper-slide">
+                        <article class="new__card swiper-slide" data-id="n4">
                             <span class="new__tag">New</span>
 
-                            <img src="assets/img/new4.png" alt="" class="new__img">
+                            <img src="assets/img/new4.png" alt="" class="new__img" onclick="goToProduct('n4')" style="cursor: pointer;">
 
                             <div class="new__data">
                                 <h3 class="new__title">Butterfly Cut Burqa</h3>
                                 <span class="new__price">৳2000</span>
                             </div>
 
-                            <button class="button new__button">ADD TO CART</button>
+                            <button class="button new__button" onclick="addToCart('n4')">BUY NOW</button>
                         </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--==================== NEWSLETTER ====================-->
         <section class="newsletter section container">
             <div class="newsletter__bg grid">
                 <div>
@@ -478,9 +463,29 @@
                 </form>
             </div>
         </section>
+
+        <div class="order-modal" id="order-modal">
+            <div class="order-modal__content">
+                <i class='bx bx-x order-modal__close' id="modal-close-btn"></i>
+
+                <h2 class="order-modal__title">Complete Your Order</h2>
+                <p class="order-modal__product" id="modal-product-name">Product: [Product Name]</p>
+
+                <form action="" class="order-modal__form" id="order-form">
+                    <input type="tel" id="form-mobile" placeholder="Enter your mobile number" class="newsletter__input" required>
+                    <input type="text" id="form-location" placeholder="Enter your location/address" class="newsletter__input" required>
+
+                    <input type="hidden" id="modal-product-id">
+                    <input type="hidden" id="modal-action">
+
+                    <button type="submit" class="button" id="modal-submit-btn">
+                        SUBMIT ORDER
+                    </button>
+                </form>
+            </div>
+        </div>
     </main>
 
-    <!--==================== FOOTER ====================-->
     <footer class="footer section">
         <div class="footer__container container grid">
             <div class="footer__content">
@@ -552,16 +557,17 @@
         <span class="footer__copy">&#169; Valid By Vogue. All rigths reserved</span>
     </footer>
 
-    <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <i class='bx bx-up-arrow-alt scrollup__icon'></i>
     </a>
 
-    <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
 
-    <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script src="assets/js/ecommerce.js"></script>
 </body>
 
 </html>
