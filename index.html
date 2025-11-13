@@ -76,14 +76,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                                    <i class='bx bx-minus' ></i>
-                                </span>
+                                <i class='bx bx-minus'></i>
+                            </span>
 
                             <span class="cart__amount-number">1</span>
 
                             <span class="cart__amount-box">
-                                    <i class='bx bx-plus' ></i>
-                                </span>
+                                <i class='bx bx-plus'></i>
+                            </span>
                         </div>
 
                         <i class='bx bx-trash-alt cart__amount-trash'></i>
@@ -103,14 +103,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                                    <i class='bx bx-minus' ></i>
-                                </span>
+                                <i class='bx bx-minus'></i>
+                            </span>
 
                             <span class="cart__amount-number">1</span>
 
                             <span class="cart__amount-box">
-                                    <i class='bx bx-plus' ></i>
-                                </span>
+                                <i class='bx bx-plus'></i>
+                            </span>
                         </div>
 
                         <i class='bx bx-trash-alt cart__amount-trash'></i>
@@ -130,14 +130,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                                    <i class='bx bx-minus' ></i>
-                                </span>
+                                <i class='bx bx-minus'></i>
+                            </span>
 
                             <span class="cart__amount-number">1</span>
 
                             <span class="cart__amount-box">
-                                    <i class='bx bx-plus' ></i>
-                                </span>
+                                <i class='bx bx-plus'></i>
+                            </span>
                         </div>
 
                         <i class='bx bx-trash-alt cart__amount-trash'></i>
@@ -161,14 +161,14 @@
 
                 <div class="home__social">
                     <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
-                            Facebook
-                        </a>
+                        Facebook
+                    </a>
                     <a href="https://twitter.com/" target="_blank" class="home__social-link">
-                            Twitter
-                        </a>
+                        Twitter
+                    </a>
                     <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
-                            Instagram
-                        </a>
+                        Instagram
+                    </a>
                 </div>
 
                 <div class="home__data">
@@ -180,8 +180,8 @@
 
                     <div class="home__btns">
                         <a href="#" class="button button--gray button--small">
-                                Discover
-                            </a>
+                            Discover
+                        </a>
 
                         <button class="button home__button" onclick="addToCart('h1')">BUY NOW</button>
                     </div>
@@ -274,8 +274,8 @@
                     <span class="products__price">৳3000</span>
 
                     <button class="products__button" onclick="addToCart('p1')">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
                 </article>
 
                 <article class="products__card" data-id="p2">
@@ -285,8 +285,8 @@
                     <span class="products__price">৳2000</span>
 
                     <button class="products__button" onclick="addToCart('p2')">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
                 </article>
 
                 <article class="products__card" data-id="p3">
@@ -296,8 +296,8 @@
                     <span class="products__price">৳1500</span>
 
                     <button class="products__button" onclick="addToCart('p3')">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
                 </article>
 
                 <article class="products__card" data-id="p4">
@@ -307,8 +307,8 @@
                     <span class="products__price">৳3000</span>
 
                     <button class="products__button" onclick="addToCart('p4')">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
                 </article>
 
                 <article class="products__card" data-id="p5">
@@ -318,8 +318,8 @@
                     <span class="products__price">৳2000</span>
 
                     <button class="products__button" onclick="addToCart('p5')">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
                 </article>
             </div>
         </section>
@@ -458,8 +458,8 @@
                 <form action="" class="newsletter__subscribe">
                     <input type="email" placeholder="Enter your email" class="newsletter__input">
                     <button class="button">
-                            SUBSCRIBE
-                        </button>
+                        SUBSCRIBE
+                    </button>
                 </form>
             </div>
         </section>
@@ -472,8 +472,12 @@
                 <p class="order-modal__product" id="modal-product-name">Product: [Product Name]</p>
 
                 <form action="" class="order-modal__form" id="order-form">
+                    <input type="text" id="form-name" placeholder="Enter your full name" class="newsletter__input" required>
+
                     <input type="tel" id="form-mobile" placeholder="Enter your mobile number" class="newsletter__input" required>
                     <input type="text" id="form-location" placeholder="Enter your location/address" class="newsletter__input" required>
+
+                    <input type="text" id="form-size" placeholder="Enter size (e.g., L, XL, or 54, 56)" class="newsletter__input" required>
 
                     <input type="hidden" id="modal-product-id">
                     <input type="hidden" id="modal-action">

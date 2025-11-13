@@ -13,82 +13,82 @@ const products = {
     'h1': {
         name: 'New Burqa Collections 2026',
         price: '৳1500',
-        img: 'assets/img/home.png',
+        img: 'assets/img/home.png', // <-- Use local path
         desc: 'Latest arrival of the new imported burqas of the 2026 series, with a modern and unique design.'
     },
     // Featured Products
     'f1': {
         name: 'Dubai Nida Burqa',
         price: '৳2000',
-        img: 'assets/img/featured1.png',
+        img: 'assets/img/featured1.png', // <-- Use local path
         desc: 'A beautiful Dubai Nida Burqa, perfect for any special occasion. Made from high-quality, breathable fabric.'
     },
     'f2': {
         name: 'Closed Front Burq',
         price: '৳3500',
-        img: 'assets/img/featured2.png',
+        img: 'assets/img/featured2.png', // <-- Use local path
         desc: 'Elegant closed-front burqa with intricate embroidery. Offers full coverage while maintaining a stylish look.'
     },
     'f3': {
         name: 'Layered Burqa',
         price: '৳4000',
-        img: 'assets/img/featured3.png',
+        img: 'assets/img/featured3.png', // <-- Use local path
         desc: 'A stunning layered burqa in a deep navy and pink. The flowing layers provide a graceful silhouette.'
     },
     // Products Section
     'p1': {
         name: 'Abaya Style Burqa',
         price: '৳3000',
-        img: 'assets/img/product1.png',
+        img: 'assets/img/product1.png', // <-- Use local path
         desc: 'Classic Abaya style burqa in a lovely pink and brown. Comfortable and stylish for daily wear.'
     },
     'p2': {
         name: 'Closed Front Burqa (Navy)',
         price: '৳2000',
-        img: 'assets/img/product2.png',
+        img: 'assets/img/product2.png', // <-- Use local path
         desc: 'A beautiful closed-front burqa in navy blue, accented with pink and floral embroidery on the sleeves.'
     },
     'p3': {
         name: 'Kaftan Style Burqa',
         price: '৳1500',
-        img: 'assets/img/product3.png',
+        img: 'assets/img/product3.png', // <-- Use local path
         desc: 'A loose-fitting Kaftan style burqa with delicate gold embroidery. Provides comfort and elegance.'
     },
     'p4': {
         name: 'Maternity Burqa',
         price: '৳3000',
-        img: 'assets/img/product4.png',
+        img: 'assets/img/product4.png', // <-- Use local path
         desc: 'A stylish and comfortable maternity burqa in maroon, designed to provide ample space and a flattering drape.'
     },
     'p5': {
         name: 'Butterfly Cut Burqa',
         price: '৳2000',
-        img: 'assets/img/product5.png',
+        img: 'assets/img/product5.png', // <-- Use local path
         desc: 'Modern butterfly-cut burqa in black with grey accents. Features beautiful floral embroidery on the cuffs.'
     },
     // New Arrivals
     'n1': {
         name: 'Festive Burqa',
         price: '৳2500',
-        img: 'assets/img/new1.png',
+        img: 'assets/img/new1.png', // <-- Use local path
         desc: 'A gorgeous festive burqa in maroon, perfect for parties and events. Features detailed silver embroidery.'
     },
     'n2': {
         name: 'Dubai Nida Burqa (Black)',
         price: '৳2500',
-        img: 'assets/img/new2.png',
+        img: 'assets/img/new2.png', // <-- Use local path
         desc: 'High-quality Dubai Nida burqa in classic black. Features subtle floral patterns on the sleeves.'
     },
     'n3': {
         name: 'Closed Front Burqa (Blue Ombre)',
         price: '৳3000',
-        img: 'assets/img/new3.png',
+        img: 'assets/img/new3.png', // <-- Use local path
         desc: 'A unique closed-front burqa with a stunning blue-to-white ombre effect. Lightweight and eye-catching.'
     },
     'n4': {
         name: 'Butterfly Cut Burqa (Maroon)',
         price: '৳2000',
-        img: 'assets/img/new4.png',
+        img: 'assets/img/new4.png', // <-- Use local path
         desc: 'Elegant butterfly-cut burqa in a rich maroon color. Features a comfortable fit and beautiful gold chest embroidery.'
     }
     // 👉 Add more products here by copying the format
@@ -104,7 +104,7 @@ const products = {
 const EMAILJS_SERVICE_ID = 'service_nwijlo4';
 
 // 👉 Add your EmailJS template ID here
-//    (In EmailJS, create a template with variables like {{action}}, {{product_name}}, {{product_price}}, {{product_image_link}}, {{buyer_mobile}}, {{buyer_location}})
+//    (In EmailJS, create a template with variables: {{action}}, {{product_name}}, {{product_price}}, {{product_image_link}}, {{buyer_name}}, {{buyer_mobile}}, {{buyer_location}}, {{buyer_size}})
 const EMAILJS_TEMPLATE_ID = 'template_kc6ipeq';
 
 // 👉 Add your EmailJS public key here
@@ -125,18 +125,22 @@ const EMAILJS_PUBLIC_KEY = 'f6UtKJBgEuWhs1rnK';
 ==================================================
 */
 
-// NEW: Get Modal Elements
+// Get Modal Elements
 const orderModal = document.getElementById('order-modal');
 const modalCloseBtn = document.getElementById('modal-close-btn');
 const modalForm = document.getElementById('order-form');
 const modalProductName = document.getElementById('modal-product-name');
 const modalProductIdField = document.getElementById('modal-product-id');
 const modalActionField = document.getElementById('modal-action');
+
+// Get all form fields
+const modalNameField = document.getElementById('form-name');
 const modalMobileField = document.getElementById('form-mobile');
 const modalLocationField = document.getElementById('form-location');
+const modalSizeField = document.getElementById('form-size');
 
 /**
- * NEW: Opens the order modal with product info
+ * Opens the order modal with product info
  * @param {string} productId - The ID from the 'data-id' attribute
  * @param {string} action - The type of action (e.g., "Add to Cart")
  */
@@ -159,14 +163,16 @@ function openOrderModal(productId, action) {
 }
 
 /**
- * NEW: Closes the order modal
+ * Closes the order modal and clears all fields
  */
 function closeOrderModal() {
     if (orderModal) {
         orderModal.classList.remove('show-modal');
         // Clear form fields
-        modalMobileField.value = '';
-        modalLocationField.value = '';
+        if (modalNameField) modalNameField.value = '';
+        if (modalMobileField) modalMobileField.value = '';
+        if (modalLocationField) modalLocationField.value = '';
+        if (modalSizeField) modalSizeField.value = '';
     }
 }
 
@@ -207,7 +213,7 @@ function loadProductDetails() {
 }
 
 /**
- * UPDATED: "Add to Cart" button now opens the modal
+ * "Add to Cart" button now opens the modal
  * @param {string} productId - The ID from the 'data-id' attribute
  */
 function addToCart(productId) {
@@ -215,7 +221,7 @@ function addToCart(productId) {
 }
 
 /**
- * UPDATED: "Buy Now" button now opens the modal
+ * "Buy Now" button now opens the modal
  * This function reads the ID stored on the product.html page
  */
 function buyNow() {
@@ -229,13 +235,15 @@ function buyNow() {
 }
 
 /**
- * UPDATED: Helper function to send the email with new fields
+ * Helper function to send the email with all new fields
  * @param {object} product - The product object from the database
  * @param {string} action - The subject line for the email (e.g., "Added to Cart")
+ * @param {string} name - The buyer's name
  * @param {string} mobile - The buyer's mobile number
  * @param {string} location - The buyer's location
+ * @param {string} size - The product size
  */
-function sendEmail(product, action, mobile, location) {
+function sendEmail(product, action, name, mobile, location, size) {
     console.log(`Sending email for ${action}: ${product.name}`);
 
     // Check if EmailJS is loaded
@@ -251,14 +259,20 @@ function sendEmail(product, action, mobile, location) {
         return;
     }
 
+    // This line automatically creates the full URL for your email,
+    // as long as your website is hosted online.
+    const fullImageUrl = window.location.origin + '/' + product.img;
+
     // UPDATED: These parameters must match the variables in your EmailJS template
     const templateParams = {
         action: action,
         product_name: product.name,
         product_price: product.price,
-        product_image_link: window.location.origin + '/' + product.img, // Creates a full URL
-        buyer_mobile: mobile, // NEW FIELD
-        buyer_location: location // NEW FIELD
+        product_image_link: fullImageUrl, // This sends the full, live URL
+        buyer_name: name,
+        buyer_mobile: mobile,
+        buyer_location: location,
+        buyer_size: size
     };
 
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
@@ -276,30 +290,39 @@ function sendEmail(product, action, mobile, location) {
 }
 
 
-// NEW: Event Listeners for Modal
+// Event Listeners for Modal
 // Run this code only if the modal exists on the page
 if (orderModal) {
     // 1. Close button
-    modalCloseBtn.addEventListener('click', closeOrderModal);
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeOrderModal);
+    }
 
     // 2. Submit form
-    modalForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Stop form from reloading page
+    if (modalForm) {
+        modalForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop form from reloading page
 
-        // Get all the data
-        const mobile = modalMobileField.value;
-        const location = modalLocationField.value;
-        const productId = modalProductIdField.value;
-        const action = modalActionField.value;
-        const product = products[productId];
+            // Get all the data from all fields
+            const name = modalNameField.value;
+            const mobile = modalMobileField.value;
+            const location = modalLocationField.value;
+            const size = modalSizeField.value;
+            const productId = modalProductIdField.value;
+            const action = modalActionField.value;
+            const product = products[productId];
 
-        // Send the email with all the data
-        sendEmail(product, action, mobile, location);
+            // Send the email with all the data
+            sendEmail(product, action, name, mobile, location, size);
 
-        // Close the modal
-        closeOrderModal();
-    });
+            // Close the modal
+            closeOrderModal();
+        });
+    }
 }
 
 // Run this on page load to set up product.html if we are on it
-loadProductDetails();
+// We check for `product-title` to know we are on product.html
+if (document.getElementById('product-title')) {
+    loadProductDetails();
+}
